@@ -23,9 +23,12 @@ function App() {
 
   return (
     <>
-      {!user ? <Login handleLogin={handleLogin} /> : ''}
-      {/* <EmployeeDashboard /> */}
-      {/* <AdminDashboard /> */}
+      {!user ? <Login handleLogin={handleLogin} /> : null}
+      {user === 'admin' ? (
+        <AdminDashboard />
+      ) : user === 'employee' ? (
+        <EmployeeDashboard />
+      ) : null}
     </>
   )
 }
